@@ -1,0 +1,47 @@
+/* ---------- journey overrides (the engine ships unstyled copy) ---------- */
+.scroll-scrub { z-index: 2; }
+.scroll-scrub__stage::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(120% 80% at 50% 110%, rgba(10, 10, 10, 0.75), transparent 60%);
+}
+.scroll-scrub__copy { max-width: 720px; padding-top: var(--g-nav-h); }
+.scroll-scrub__kicker { font-family: var(--g-mono); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--g-gold); }
+.scroll-scrub__kicker::before { content: "// "; color: var(--g-amber); }
+.scroll-scrub__title { font-family: var(--g-display); font-weight: 400; font-size: clamp(3.4rem, 9.5vw, 9rem); line-height: 0.9; letter-spacing: 0.01em; text-transform: uppercase; margin: 12px 0 18px; }
+.scroll-scrub__body { font-family: var(--g-body); font-size: clamp(16px, 1.6vw, 19px); line-height: 1.55; color: var(--g-ink); max-width: 46ch; }
+.scroll-scrub__tags li { font-family: var(--g-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: lowercase; border-color: var(--g-line); background: rgba(10, 10, 10, 0.5); border-radius: 3px; }
+.scroll-scrub__actions { display: flex; flex-wrap: wrap; gap: 18px 24px; align-items: center; margin-top: 26px; }
+.scroll-scrub__route { font-family: var(--g-mono); }
+.scroll-scrub__route-button { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; }
+.scroll-scrub__progress span { background: var(--g-gold); }
+
+/* chapter 2: the counter over the gold rain */
+.g-rain { width: 100%; }
+.g-rain__num { display: flex; align-items: baseline; gap: 12px; margin: 0; flex-wrap: wrap; }
+.g-rain__value { font-size: clamp(3rem, 9vw, 8.4rem); line-height: 1; font-weight: 700; color: var(--g-gold); text-shadow: 0 0 40px rgba(245, 197, 66, 0.35); }
+.g-rain__unit { font-size: clamp(1rem, 2.2vw, 1.8rem); color: var(--g-amber); letter-spacing: 0.1em; }
+.g-rain__sub { font-family: var(--g-mono); font-size: 12px; color: var(--g-muted); margin: 8px 0 22px; letter-spacing: 0.06em; }
+.g-tiles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; perspective: 1000px; }
+.g-tile { position: relative; height: 96px; transform-style: preserve-3d; transition: transform 0.6s var(--g-ease); cursor: default; outline: none; }
+.g-tile:hover, .g-tile:focus-visible { transform: rotateX(180deg); }
+.g-tile__face { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 12px 14px; border: 1px solid var(--g-line); background: rgba(10, 10, 10, 0.72); backdrop-filter: blur(6px); border-radius: 4px; backface-visibility: hidden; }
+.g-tile__back { transform: rotateX(180deg); background: rgba(245, 197, 66, 0.08); }
+.g-tile__k { font-family: var(--g-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--g-muted); }
+.g-tile__v { font-size: 22px; color: var(--g-ink); }
+.g-tile__how { font-size: 12px; line-height: 1.35; color: var(--g-ink); }
+@media (max-width: 640px) { .g-tiles { grid-template-columns: 1fr; } .g-tile { height: 80px; } }
+
+/* ---------- how it pays ---------- */
+.g-pays { background: linear-gradient(180deg, var(--g-bg) 0%, var(--g-bg-2) 100%); }
+.g-steps { position: relative; list-style: none; margin: 56px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.g-steps__line { position: absolute; top: 34px; left: 5%; width: 90%; height: 2px; }
+.g-steps__line path { stroke: var(--g-gold); stroke-width: 2; stroke-dasharray: 1000; stroke-dashoffset: 1000; }
+.g-steps:has(.g-step[data-reveal="in"]) .g-steps__line path { animation: g-draw 1.6s var(--g-ease) forwards; }
+@keyframes g-draw { to { stroke-dashoffset: 0; } }
+.g-step { position: relative; padding-top: 12px; }
+.g-step__icon { display: grid; place-items: center; width: 68px; height: 68px; border-radius: 50%; background: var(--g-bg); border: 1px solid var(--g-gold); box-shadow: 0 0 0 8px var(--g-bg), 0 0 30px rgba(245, 197, 66, 0.25); margin-bottom: 22px; }
+.g-step__icon svg { width: 40px; height: 40px; fill: none; stroke: var(--g-gold); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.g-step__n { font-family: var(--g-mono); font-size: 12px; color: var(--g-amber); letter-spacing: 0.2em; }
+.g-step__t { font-family: var(--g-display); font-size: 34px; font-weight: 400; letter-spacing: 0.02em; margin: 6px 0 8px; text-transform: uppercase; }
+.g-step__d { font-size: 15px; line-height: 1.55; color: var(--g-muted); margin: 0; }
+@media (max-width: 820px) { .g-steps { grid-template-columns: 1fr; } .g-steps__line { display: none; } }
