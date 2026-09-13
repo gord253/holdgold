@@ -5,25 +5,30 @@
 
 @import "tailwindcss" source(none);
 @source "../src";
-@source "../packages/app-landing/src";
-@source "../packages/quanta/src";
-@import "@higgsfield/quanta/tailwind.css";
 
 /* New in-app Quanta-style components (moved out of the quanta package). Their
  * CSS uses Tailwind v4 @utility/@source, so it must load through this tailwind
  * entry. Ordering mirrors quanta's components.css (composer after button;
  * media-card + generation-card after media). */
-@import "./components/composer/composer.css";
-@import "./components/media-card/media-card.css";
-@import "./components/generation-card/generation-card.css";
-@import "./components/setting-trigger/setting-trigger.css";
-@import "./components/prompt-box/prompt-box.css";
-@import "./components/icon-tile/icon-tile.css";
 
 @import "tw-animate-css";
 /* shadcn v4 base (scrollbar/scroll-fade utilities, toast base) for src/components/ui */
-@import "shadcn/tailwind.css";
 
+/* Fallback tokens (the Quanta design system is not part of this site). */
+:root {
+  --hf-color-background-primary: #0a0a0a; --hf-color-background-secondary: #141414; --hf-color-background-tertiary: #1e1e1e;
+  --hf-color-text-primary: #f2ecdf; --hf-color-text-secondary: #a89f8c;
+  --hf-color-button-brand: #f5c542; --hf-color-button-label-brand: #0a0a0a;
+  --hf-color-button-destructive: #ff4d4d; --hf-color-button-label-destructive: #ffffff;
+  --hf-color-border-default: rgba(245,197,66,0.22); --hf-color-border-focus: #f5c542;
+  --hf-color-overlay-hover: rgba(255,255,255,0.06); --hf-color-glass-dark: rgba(10,10,10,0.8);
+  --hf-color-transparent-light-05: rgba(255,255,255,0.05); --hf-color-transparent-light-15: rgba(255,255,255,0.15);
+  --hf-color-lime-500: #a3e635; --hf-color-pink-500: #ec4899; --hf-color-blue-500: #3b82f6; --hf-color-yellow-500: #f5c542; --hf-color-purple-500: #a855f7;
+  --hf-type-family-grotesk: "Inter", system-ui, sans-serif; --hf-type-family-secondary: "Inter", system-ui, sans-serif;
+  --hf-radius-300: 12px;
+  --hf-gradient-badge-blue: linear-gradient(90deg,#3b82f6,#60a5fa); --hf-gradient-badge-pink: linear-gradient(90deg,#ec4899,#f472b6); --hf-gradient-badge-purple: linear-gradient(90deg,#a855f7,#c084fc);
+  --hf-gradient-glass-sheen: linear-gradient(180deg,rgba(255,255,255,0.08),transparent); --hf-gradient-special-gloss-lime-angled: linear-gradient(120deg,rgba(255,255,255,0.2),transparent); --hf-gradient-special-gloss-pink: linear-gradient(120deg,rgba(255,255,255,0.2),transparent);
+}
 @custom-variant dark (&:where([data-theme="default-dark"], [data-theme="default-dark"] *));
 
 /*
