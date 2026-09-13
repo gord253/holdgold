@@ -16,6 +16,10 @@
   // `name` must stay a valid Cloudflare name (lowercase + dashes, 3–63 chars).
   "name": "holdgold",
 
+  // Publish the worker at holdgold.<account-subdomain>.workers.dev. Without this
+  // the deploy succeeds but the worker has no public URL ("No URLs enabled").
+  "workers_dev": true,
+
   // The Worker entry is the TanStack Start SSR server bundle — `vite build`
   // emits dist/server/server.js (`export default { fetch }`). The deploy CI
   // rediscovers the real built entry and points `main` at it.
